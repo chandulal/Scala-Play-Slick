@@ -14,7 +14,14 @@ object Reports extends Controller {
   /**
    * Method return rows from DB for reports with specified limit, and filters like from date, to date, which world and how to sort
    */
-  def reports(offset: Int, limit: Int, fromDate: Option[String], toDate: Option[String], world: Option[String], field: Option[String], sort: Option[String]) = Action { implicit request =>
+  def reports(offset: Int,
+              limit: Int,
+              fromDate: Option[String],
+              toDate: Option[String],
+              world: Option[String],
+              field: Option[String],
+              sort: Option[String]
+               ) = Action { implicit request =>
     implicit val reportEntryWrites = Json.writes[ReportEntity]
 
     Ok(Json.obj(
